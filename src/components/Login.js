@@ -1,24 +1,49 @@
-import React from 'react';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 import './Login.css';
 
-function Login() {
-  return <div className='login'>
-      <div className='login__form'>
-          <h1>Login</h1>
-          <form>
-              <h5>Phone no</h5>
-              <input type="text" value="Phone no"/>
-              <h5>Password</h5>
-              <input type="password" value="password"/>
-              <button type="submit">Login</button>
-          </form>
-          <input type="checkbox"/>
-          <p>I agree to the Terms and Conditions of use and sale.
-              Please check our Privacy policies and our cookie notice.
-          </p>
-      </div>
-  </div>;
-}
 
-export default Login;
+const SignupSchema = Yup.object().shape({
+  phoneNumber: Yup.string()
+    .min(10, "Too Short!")
+    .max(10, "Too Long!")
+    .required("Required")
+});
+
+const ValidationSchemaExample = () => (
+  <div className="app">
+    <div className="login__form">
+    <h1>Login</h1>
+    <Formik
+      initialValues={{
+        phoneNumber: ""
+      }}
+      validationSchema={SignupSchema}
+      onSubmit={(values) => {
+        // same shape as initial values
+        alert(values.phoneNumber);
+      }}
+    >
+      {({ errors, touched }) => (
+        <Form>
+          <h5>Phone number</h5>
+          <Field name="phoneNumber" />
+          {errors.phoneNumber && touched.phoneNumber ? (
+            <div>{errors.phoneNumber}</div>
+          ) : null}
+
+          <button type="submit">Login</button>
+          <p>I agree to the terms and conditions of the website.
+              You can read our Privacy Policies and Cookies.
+          </p>
+        </Form>
+      )}
+    </Formik>
+    </div>
+    </div>
+
+);
+
+export default ValidationSchemaExample;
 

@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.login {
+.app {
   background-image: url("./bg.jpg");
   background-size: cover;
   background-position: center;
@@ -27,7 +27,7 @@
   border: 1px solid lightgray;
 }
 
-.login__form > form {
+.login__form > Formik {
   width: 300px;
   margin-top: 2px;
   margin-bottom: 3px;
@@ -39,18 +39,15 @@
   font-weight: 500;
   margin-bottom: 20px;
 }
-.login__form > form > h5 {
-  margin-bottom: 5px;
-}
 
-.login__form > form > input {
+.login__form > Form > input {
   height: 30px;
   margin-bottom: 10px;
   background: white;
   width: 98%;
 }
 
-.login__form > form > button {
+.login__form > Form > button {
   font-size: 15px;
   margin-top: 15px;
   background: rgb(8, 14, 1);
@@ -60,12 +57,12 @@
   border: 2px solid grey;
   border-radius: 2px;
 }
-
-.login__form > input {
-  margin-top: 15px;
+.login__form > Form > h5 {
+  margin-bottom: 5px;
 }
 
-.login__form > p {
-  margin-top: 15px;
+.login__form > Form > p {
   font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
