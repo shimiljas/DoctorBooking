@@ -1,10 +1,12 @@
 import React from 'react';
-import Login from './components/Login';
+import Header from './components/Header/Header';
+import TeslaNotice from './components/TeslaNotice/TeslaNotice';
 
 function App() {
   return (
     <div>
-    <Login/>
+     <Header/>
+     <TeslaNotice/>
     </div>
   )
 }
